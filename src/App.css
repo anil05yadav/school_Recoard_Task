@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  color: #042d56;
 }
 
 .App-logo {
@@ -11,6 +12,33 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.stu_btn {
+  background-color: #61dafb;
+  margin-top: 20px;
+  margin-right: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.table-head {
+  background: #380d59;
+  color: #fff;
+}
+
+.tableMain_ {
+  background: #ffffff;
+  border: 1px solid #eaecf0;
+  border-radius: 10px;
+}
+
+.commonBox_ {
+  background: #fff;
+  padding: 7px 35px !important;
+  border-radius: 10px;
 }
 
 .App-header {
@@ -35,4 +63,467 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-left: 10%;
+}
+
+th, td {
+  border: 1px solid #000; /* Add a solid black border to table cells */
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+
+.create_btn {
+  background-color: #dded80;
+  margin-left: 68%;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.create_btn_student {
+  background-color: #dded80;
+  margin-left: 0%;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+
+
+/* Start Signup Modal Css */
+.modal-content{
+  background: #d6cddd;
+  border-radius: 20px;
+}
+#signupModal.modal-dialog {
+  width: 100%;
+  max-width: 610px;
+}
+#signupModal .modal-content{
+  height: 100%;
+  /* min-height: 609.13px; */
+}
+#loginModal.modal-dialog {
+  width: 100%;
+  max-width: 610px;
+}
+#loginModal .modal-content{
+  height: 100%;
+  /* min-height: 552px; */
+}
+.modal-header{
+  padding: 12px 15px;
+  border-bottom: 0;
+}
+.crossIcon{
+  width: 14px;
+  height: 14px;
+  margin-left: 98%;
+  cursor: pointer;
+}
+.fade.modal.show{
+  backdrop-filter: blur(20px);
+}
+.modal-body{
+  padding: 0 40px 45px;
+}
+.tab-buttons {
+  border-radius: 6px;
+  background: #23003E;
+  padding: 5px;
+  margin-top:22px;
+}
+.tabBtn.active{
+  border-radius: 6px;
+  border: 1px solid #591A97;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.21) -11.7%, rgba(255, 255, 255, 0.00) 70.21%), #36105C;
+  padding: 8px 0px;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 500;
+  padding-top: 25px;
+}
+.tabBtn {
+  border: none;
+  background-color: transparent;
+  padding: 8px 0px;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 500;
+  width: 20%;
+  border-right: 0.5px solid #591A97;
+  height: 60px;
+  vertical-align: bottom;
+  padding-top: 25px;
+  position: relative;
+}
+.tabBtn span font{
+  display: inline-block;
+}
+.tabBtn span{
+  vertical-align: super;
+ 
+}
+.tabIcons {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 7px;
+  width: 11px;
+  height: 12px;
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.tabBtn:last-child{
+  border-right: 0;
+}
+.hr{
+  height: 2px;
+  width: 100%;
+  background: rgb(205 164 227 / 30%);
+  margin:19px 0;
+}
+.form-label{
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 400;
+}
+.form-group{
+  position: relative;
+}
+
+.inputWithCopy{
+  padding: 11px 36px 11px 16px !important;
+}
+input::placeholder{
+  color: #CDA4E3;
+  font-size: 12px;
+}
+.copyIcon {
+  position: absolute;
+  right: 15px;
+  bottom: 16px;
+  cursor: pointer;
+}
+.customCheckbox .form-group input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+.customCheckbox .form-group label {
+  position: relative;
+  cursor: pointer;
+}
+.customCheckbox .form-group label:before {
+  content: '';
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 1px solid #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 10px 9px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+.customCheckbox .form-group input:checked + label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 5px;
+  height: 12px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}   
+.customCheckbox {
+  border-radius: 15px;
+  padding: 10px 0px;
+}
+.loginBtnCommon {
+  border-radius: 16px;
+  border: 1px solid #9C54C1;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.00) 100%), #6A379E;
+  background-blend-mode: overlay, normal;
+  color: #FCFCFC;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 16px 8px;
+  width: 100%;
+  max-width: 293px;
+  border: none;
+  margin-left: 20%;
+  margin-top: 3%;
+}
+.credentialsBtn {
+  padding: 10px 16px;
+  border: none;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 500;
+  width: 100%;
+  text-align: start;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #9C54C1;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.00) 100%), #6A379E;
+  background-blend-mode: overlay, normal;
+}
+.credentialsBtn img{
+  margin-left: auto;
+}
+.googleBtn {
+  align-items: center;
+  background: #fff;
+  border: none;
+  border-radius: 30px;
+  color: #042d56;
+  display: flex;
+  font-size: 14px;
+  font-weight: 600;
+  justify-content: center;
+  padding: 12px 16px;
+  text-align: center;
+  width: 89%;
+}
+.facebook {
+  background: #039BE5;
+  color: #fff;
+}
+.phoneBtn{
+  background: linear-gradient(180deg, #4AB4FB 15.62%, #2861C9 100%);
+}
+.msgBtn{
+  background: linear-gradient(180deg, #FCDC4A 15.62%, #CA7628 100%);
+}
+.otpList li {
+  display: inline-block;
+  margin-right: 12px;
+}
+.otpList input {
+  width: 100% !important;
+  max-width: 70px;
+  height: 40px;
+  border-radius: 24px;
+  border: 1px solid #6B4081;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0.00) 100%), #36105C;
+  background-blend-mode: overlay, normal;
+  display: inline-block;
+  padding: 11px 16px;
+  outline: none;
+  color: #fff;
+  text-align: center;
+}
+.optNotRecive{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.doNotTxt{
+  color: #CDA4E3;
+  text-align: right;
+  font-size: 10px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.getCall{
+  color: #CDA4E3;
+  text-align: right;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.getCallImg{
+  width: 14px;
+  height: 14px;
+}
+.tabBtn:has(+ .tabBtn.active) {
+  border-right: none !important;
+}
+.loginTxt{
+  font-size: 14px;
+  font-weight: 400;
+  color: #FFF;
+  margin-bottom: 0;
+}
+.loginLink{
+  color: #C77126 !important;
+  font-size: 14px;
+  font-weight: 700;
+}
+.validationMsg {
+  color: #B32A2E;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px !important;
+  display: inline-block;
+}
+.react-tel-input .form-control {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #fff !important;
+  width: 100% !important;
+}
+.react-tel-input .flag-dropdown {
+  background: transparent !important;
+  border: none !important;
+}
+.react-tel-input .country-list {
+  width: 477px !important;
+  max-height: 219px;
+  overflow-y: scroll;
+  border-radius: 0 0 3px 3px;
+  background: #380d59 !important;
+}
+.react-tel-input .country-list .search {
+  background-color: #371257;
+}
+.react-tel-input .flag-dropdown.open .selected-flag {
+  background: #3a1662;
+}
+.react-tel-input .selected-flag:hover, .react-tel-input .selected-flag:focus {
+  background-color: #3a1662;
+}
+.react-tel-input .country-list .search-box {
+  border: 1px solid #c77126;
+  background: #371257;
+  color: #fff;
+  font-size: 12px;
+}
+.react-tel-input .country-list .country .dial-code {
+  color: #fff;
+}
+.react-tel-input .country-list .country:hover {
+  background-color: #23003E !important;
+}
+.react-tel-input.form-input{
+  padding-top:5px;
+  padding-bottom: 5px;
+}
+.react-tel-input .country-list .country.highlight {
+  background-color: #23003E !important;
+}
+
+#createStudent {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+#signupModal.modal-dialog {
+  margin: 0;
+  padding: 0px 10px;
+}
+
+
+.heading22{
+  color: #FFF;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+
+.form-input{
+  border-radius: 24px;
+  border: 1px solid #252227;
+  background:linear-gradient(180deg, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0.00) 100%), #36105C;
+  background-blend-mode: overlay, normal;
+  padding: 11px 16px;
+  display: inline-block;
+  width: 50%;
+  outline: none;
+  color: #fff;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.form-label{
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.form-group{
+  position: relative;
+}
+
+.customCheckbox .form-group input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+.customCheckbox .form-group label {
+  position: relative;
+  cursor: pointer;
+}
+.customCheckbox .form-group label:before {
+  content: '';
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 1px solid #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 10px 9px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+.customCheckbox .form-group input:checked + label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 5px;
+  height: 12px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+} 
+
+.head_button {
+  display: flex; /* Use flexbox to align children in a row */
+  justify-content: space-around; /* Spacing between child elements */
+  align-items: center; /* Vertically center child elements */
+}
+
+
+.main_heading{
+  margin-top: 10%;
 }
