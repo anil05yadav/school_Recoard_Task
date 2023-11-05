@@ -1,10 +1,11 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import CustomModal from "../../components/common/shared/CustomModal";
 import StudentModal from "../../components/common/studentModal";
 import { useStudentSelector } from "../../../redux/selector";
 
 const StudentRecord = () => {
     const selector = useStudentSelector();
+    const [data, setData] = useState(selector);
     const [searchStudent, setSearchStudent] = useState('');
     const [selectedClass, setSelectedClass] = useState('');
     const [key, setKey] = useState(Math.random());
@@ -14,20 +15,23 @@ const StudentRecord = () => {
         flag: "",
     });
 
-   //Filter setudent recoard by search
-    const filteredStudents = selector.filter((student) =>
-        student.name.toLowerCase().includes(searchStudent.toLowerCase())
-    );
+    useEffect(() => {
+        let filteredData = selector;
+        if (searchStudent) {
+            filteredData = selector.filter((student) =>
+                student.name.toLowerCase().includes(searchStudent.toLowerCase()));
+        }
 
+        if (selectedClass) {
+            filteredData = selector.filter((student) => student.class === selectedClass);
+        }
+        setData(filteredData);
 
-    //Filter student recoard by class
-    const filterStudentbyClass = selector.filter((student) =>
-        student.class === selectedClass
-    );
+    }, [searchStudent, selector, selectedClass,])
 
 
     //Find class list
-    const findClasses =(data)  =>{
+    const findClasses = (data) => {
         const classSet = new Set();
         data.forEach((item) => {
             classSet.add(item.class);
@@ -61,7 +65,7 @@ const StudentRecord = () => {
                     </div>
                     <div>
                         <select onChange={(e) => setSelectedClass(e.target.value)}>
-                            <option value="">Selecct Classes</option>
+                            <option value="">Select Classes</option>
                             {differentClasses.map((cls) => (
                                 <option key={cls} value={cls}>
                                     {cls}
@@ -91,72 +95,24 @@ const StudentRecord = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {selectedClass ?
+                            {data.length > 0 ?
                                 <>
-                                    {filterStudentbyClass.length > 0 ?
-                                        <>
-                                            {filterStudentbyClass?.map((item, index) => {
-                                                return (
-                                                    <tr key={index}>
-                                                        <td>{index + 1}</td>
-                                                        <td>{item.name}</td>
-                                                        <td>{item.age}</td>
-                                                        <td>{item.image}</td>
-                                                        <td>{item.class}</td>
-                                                        <td>{item.rollNumber}</td>
-                                                    </tr>
-                                                )
-                                            })}
-                                        </>
-                                        : "no data found"
-                                    }
-
+                                    {data?.map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>{index + 1}</td>
+                                                <td>{item.name}</td>
+                                                <td>{item.age}</td>
+                                                <td>{item.image.slice(0, 50)}</td>
+                                                <td>{item.class}</td>
+                                                <td>{item.rollNumber}</td>
+                                            </tr>
+                                        )
+                                    })}
                                 </>
-                                :
-                                <>
-                                    {searchStudent ?
-                                        <>
-                                            {filteredStudents.length > 0 ?
-                                                <>
-                                                    {filteredStudents?.map((item, index) => {
-                                                        return (
-                                                            <tr key={index}>
-                                                                <td>{index + 1}</td>
-                                                                <td>{item.name}</td>
-                                                                <td>{item.age}</td>
-                                                                <td>{item.image}</td>
-                                                                <td>{item.class}</td>
-                                                                <td>{item.rollNumber}</td>
-                                                            </tr>
-                                                        )
-                                                    })}
-                                                </>
-                                                : "no data found"
-                                            }
-                                        </>
-                                        :
-                                        <>
-                                            {selector.length > 0 ?
-                                                <>
-                                                    {selector?.map((item, index) => {
-                                                        return (
-                                                            <tr key={index}>
-                                                                <td>{index + 1}</td>
-                                                                <td>{item.name}</td>
-                                                                <td>{item.age}</td>
-                                                                <td>{item.image}</td>
-                                                                <td>{item.class}</td>
-                                                                <td>{item.rollNumber}</td>
-                                                            </tr>
-                                                        )
-                                                    })}
-                                                </>
-                                                : "no data found"
-                                            }
-                                        </>
-                                    }
-                                </>}
-
+                                : "no data found"
+                            }
+                           
                         </tbody>
                     </table>
                 </div>

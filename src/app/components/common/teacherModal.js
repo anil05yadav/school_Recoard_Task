@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { addTeacher } from "../../../redux/slice";
 
 const TeacherModal = (props) => {
-    console.log("props", props)
     const dispatch = useDispatch();
     const [teacher, setTeacher] = useState({
         name: '',
@@ -12,6 +11,24 @@ const TeacherModal = (props) => {
         sex: '',
     });
     const [errors, setErrors] = useState({});
+
+
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+    
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            setTeacher({
+                ...teacher,
+                image: e.target.result,
+            });
+          };
+          reader.readAsDataURL(file);
+        }
+      };
+
 
     //Validate when starting page
     useEffect(() => {
@@ -37,6 +54,12 @@ const TeacherModal = (props) => {
             setErrors((prevErrors) => ({
                 ...prevErrors,
                 age: 'Age must be a number',
+            }));
+        }
+        else if (teacher.age < 15  || teacher.age > 50) {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                age: 'Age allow between 15 to 50',
             }));
         } else {
             setErrors((prevErrors) => ({
@@ -120,7 +143,7 @@ const TeacherModal = (props) => {
 
                     <div>
                         <label style={{ marginRight: '11px' }} >Image:</label> { }
-                        <input type="text" className="form-input" name="image" value={teacher.image} onChange={handleChange} />
+                        <input type="file" className="form-input" accept="image/*" onChange={handleImageChange} />
                     </div>
                  
                     <div>

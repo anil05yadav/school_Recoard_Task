@@ -13,6 +13,23 @@ const StudentModal = (props) => {
     });
     const [errors, setErrors] = useState({});
 
+
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+    
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            setStudent({
+                ...student,
+                image: e.target.result,
+            });
+          };
+          reader.readAsDataURL(file);
+        }
+      };
+
     //Validate when starting page
     useEffect(() => {
         if (!student.name) {
@@ -38,10 +55,29 @@ const StudentModal = (props) => {
                 ...prevErrors,
                 age: 'Age must be a number',
             }));
-        } else {
+        } else if (student.age < 3 || student.age > 30) {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                age: 'Age allow between 3 to 30',
+            }));
+        }
+        else {
             setErrors((prevErrors) => ({
                 ...prevErrors,
                 age: '',
+                error: '',
+            }));
+        }
+
+        if (student.class < 1 || student.class > 15) {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                class: 'Class allow between 1 to 15',
+            }));
+        } else {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                class: '',
                 error: '',
             }));
         }
@@ -79,7 +115,7 @@ const StudentModal = (props) => {
         e.preventDefault();
 
         // Validate again before submitting
-        if (errors.name || errors.age || errors.rollNumber) {
+        if (errors.name || errors.age || errors.class || errors.rollNumber) {
             setErrors((prevErrors) => ({
                 ...prevErrors,
                 error: 'Please fix validation errors before submitting.',
@@ -127,12 +163,13 @@ const StudentModal = (props) => {
 
                     <div>
                         <label style={{ marginRight: '41px' }} >Image:</label> { }
-                        <input type="text" className="form-input" name="image" value={student.image} onChange={handleChange} />
+                        <input type="file" className="form-input" accept="image/*" onChange={handleImageChange} />
                     </div>
 
                     <div>
                         <label style={{ marginRight: '50px' }} >Class:</label> { }
                         <input type="text" className="form-input" name="class" value={student.class} onChange={handleChange} />
+                        {errors.class && <span className="validationMsg">{errors.class}</span>}
                     </div>
 
                     <div>

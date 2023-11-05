@@ -53,7 +53,7 @@ const TeacherRecoard = () => {
                                             <td>{index+1}</td>
                                             <td>{item.name}</td>
                                             <td>{item.age}</td>
-                                            <td>{item.image}</td>
+                                            <td>{item?.image?.slice(0, 50)}</td>
                                             <td>{item.sex}</td>
                                         </tr>
                                     )

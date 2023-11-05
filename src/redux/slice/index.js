@@ -10,21 +10,15 @@ export const studentSlice = createSlice({
   reducers: {
 
     addStudent: (state, action) => {
-      console.log(action, "action")
-      //   state.value += action.payload
       state.student = [...state.student, action.payload]
     },
 
 
     addTeacher: (state, action) => {
-      console.log(action, "action")
-      //   state.value += action.payload
       state.teacher = [...state.teacher, action.payload]
     },
 
     addSubject: (state, action) => {
-      console.log(action, "action")
-      //   state.value += action.payload
       state.subject = [...state.subject, action.payload]
     },
 

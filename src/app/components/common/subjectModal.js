@@ -112,7 +112,7 @@ const SubjectModal = (props) => {
                     </div>
 
                     <div>
-                        <label style={{ marginRight: '28px' }} >Class:  </label>   { }
+                        <label style={{ marginRight: '20px' }} >Class:  </label>   { }
                         <input type="text" className="form-input" name="class" value={subject.class} onChange={handleChange} />
                         {errors.class && <span className="validationMsg">{errors.class}</span>}
                     </div>
