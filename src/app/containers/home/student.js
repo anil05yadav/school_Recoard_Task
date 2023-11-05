@@ -6,6 +6,7 @@ import { useStudentSelector } from "../../../redux/selector";
 const StudentRecord = () => {
     const selector = useStudentSelector();
     const [data, setData] = useState(selector);
+    console.log("data", data)
     const [searchStudent, setSearchStudent] = useState('');
     const [selectedClass, setSelectedClass] = useState('');
     const [key, setKey] = useState(Math.random());
@@ -103,7 +104,10 @@ const StudentRecord = () => {
                                                 <td>{index + 1}</td>
                                                 <td>{item.name}</td>
                                                 <td>{item.age}</td>
-                                                <td>{item.image.slice(0, 50)}</td>
+                                                <td>
+                                                    {item.image && (
+                                                        <img src={item.image} alt="Uploaded" width="100" />
+                                                    )}</td>
                                                 <td>{item.class}</td>
                                                 <td>{item.rollNumber}</td>
                                             </tr>
@@ -112,7 +116,7 @@ const StudentRecord = () => {
                                 </>
                                 : "no data found"
                             }
-                           
+
                         </tbody>
                     </table>
                 </div>

@@ -24,74 +24,77 @@ const TeacherRecoard = () => {
 
     return (
         <>
-        <div className="App">
+            <div className="App">
 
-            <button className="create_btn" onClick={() => {
-                setModalDetail({ show: true, flag: "createStudent" });
-                setKey(Math.random());
-            }} >create Teacher Details</button>
-            <div className="commonBox_"></div>
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Image</th>
-                            <th>Sex</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
+                <button className="create_btn" onClick={() => {
+                    setModalDetail({ show: true, flag: "createStudent" });
+                    setKey(Math.random());
+                }} >create Teacher Details</button>
+                <div className="commonBox_"></div>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Image</th>
+                                <th>Sex</th>
 
-                        {selector.length > 0 ?
-                            <>
-                                {selector?.map((item, index) => {
-                                    return (
-                                        <tr key={index}>
-                                            <td>{index+1}</td>
-                                            <td>{item.name}</td>
-                                            <td>{item.age}</td>
-                                            <td>{item?.image?.slice(0, 50)}</td>
-                                            <td>{item.sex}</td>
-                                        </tr>
-                                    )
-                                })}
-                            </>
-                            : "no data found"}
-                        {/* Add more rows and data as needed */}
-                    </tbody>
-                </table>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {selector.length > 0 ?
+                                <>
+                                    {selector?.map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>{index + 1}</td>
+                                                <td>{item.name}</td>
+                                                <td>{item.age}</td>
+                                                <td>
+                                                    {item.image && (
+                                                        <img src={item.image} alt="Uploaded" width="100" />
+                                                    )}</td>
+                                                <td>{item.sex}</td>
+                                            </tr>
+                                        )
+                                    })}
+                                </>
+                                : "no data found"}
+                            {/* Add more rows and data as needed */}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        <CustomModal
-            key={key}
-            showModal={modalDetail.show}
-            setShowModal={setModalDetail}
-            title={modalDetail.title}
-            dialogClassName="modal-dialog-centered"
-            backdrop="static"
-            ids={"createStudent"}
-            onCloseModal={() => handleOnCloseModal()}
-            showCloseBtn={"show"}
-            header={
-                modalDetail.flag === "createStudent" ?
-                    <>
-                        <header></header>
-                    </>
-                    : null
-            }
-            child={
-                modalDetail.flag === "createStudent" ?
-                    <>
-                        <TeacherModal onCloseModal={() => handleOnCloseModal()} />
-                    </>
-                    :
-                    null
-            }
-        />
-    </>
+            <CustomModal
+                key={key}
+                showModal={modalDetail.show}
+                setShowModal={setModalDetail}
+                title={modalDetail.title}
+                dialogClassName="modal-dialog-centered"
+                backdrop="static"
+                ids={"createStudent"}
+                onCloseModal={() => handleOnCloseModal()}
+                showCloseBtn={"show"}
+                header={
+                    modalDetail.flag === "createStudent" ?
+                        <>
+                            <header></header>
+                        </>
+                        : null
+                }
+                child={
+                    modalDetail.flag === "createStudent" ?
+                        <>
+                            <TeacherModal onCloseModal={() => handleOnCloseModal()} />
+                        </>
+                        :
+                        null
+                }
+            />
+        </>
     )
 }
 
